@@ -23,6 +23,8 @@ public class TrampGame {
                 System.out.println("正解！図柄は"+suitArray[suit]+"だよ");
                 System.out.println("次は数字を当ててね");
                 break;
+            }else if(inputSuit >= 4){
+                System.out.println("0～3で入力してね");
             }else{
                 System.out.println("残念！"+suitArray[inputSuit]+"じゃないよ");
             }
