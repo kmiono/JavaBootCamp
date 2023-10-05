@@ -32,6 +32,10 @@ public class TrampGame {
             int inputRank = scanner.nextInt();
             if(rankArray[inputRank] == rankArray[rank+1]){
                 System.out.println("正解！"+suitArray[suit]+"の"+rankArray[rank+1]+"だよ");
+                break;
+            }else{
+                System.out.println("残念！"+rankArray[inputRank]+"じゃないよ");
+            
             }
         }
     }
