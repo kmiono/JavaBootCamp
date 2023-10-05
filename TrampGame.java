@@ -35,7 +35,12 @@ public class TrampGame {
             if(rankArray[inputRank] == rankArray[rank+1]){
                 System.out.println("正解！"+suitArray[suit]+"の"+rankArray[rank+1]+"だよ");
                 break;
-            }else{
+            }else if(inputRank == 0){
+                System.out.println("1～13で入力してね");
+            }else if(inputRank >= 14){
+                System.out.println("1～13で入力してね");
+            }
+            else{
                 System.out.println("残念！"+rankArray[inputRank]+"じゃないよ");
             
             }
