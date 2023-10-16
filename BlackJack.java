@@ -10,33 +10,18 @@ public class BlackJack {
      * @param args
      */
     public static void main(String[] args) {
-        Random rand = new Random();
+         
         try (Scanner scanner = new Scanner(System.in)) {
 
 
-            int comCard1 = rand.nextInt(12)+1;//COMに配られるカード1枚目
-            int comCard2 = rand.nextInt(12)+1;//COMに配られるカード2枚目
-            //J、Q、Kは統一で10とする（Aは1とする）
-            if(comCard1 == 11 || comCard1 == 12 || comCard1 == 13){
-                comCard1 = 10;
-            }
-            if(comCard2 == 11 || comCard2 == 12 || comCard2 == 13){
-                comCard2 = 10;
-            }
+            int comCard1 = cardGanerator();//COMに配られるカード1枚目
+            int comCard2 = cardGanerator();//COMに配られるカード2枚目
 
             int comTotal = comCard1+comCard2;
 
 
-            int userCard1 = rand.nextInt(12)+1;//プレイヤーに配られるカード1枚目
-            int userCard2 = rand.nextInt(12)+1;//プレイヤーに配られるカード1枚目
-
-            //J、Q、Kは統一で10とする（Aは1とする）
-            if(userCard1 == 11 || userCard1 == 12 || userCard1 == 13){
-                comCard1 = 10;
-            }
-            if(userCard2 == 11 || userCard2 == 12 || userCard2 == 13){
-                userCard2 = 10;
-            }
+            int userCard1 = cardGanerator();//プレイヤーに配られるカード1枚目
+            int userCard2 = cardGanerator();//プレイヤーに配られるカード1枚目
 
             int userTotal = userCard1+userCard2;
             
@@ -58,7 +43,7 @@ public class BlackJack {
                 System.out.println("もう１枚カードを引きますか？(Y/N)：");
                 final String bet = scanner.next();
                 if(bet.equals("Y")){
-                    userBetCard = rand.nextInt(12)+1;
+                    userBetCard = cardGanerator();
                     System.out.println("あなたに「"+trampSuit[userBetCard-1]+"」が配られました。");
                     userTotal += userBetCard;
                     System.out.println("現在の合計は "+userTotal+" です。");
@@ -78,7 +63,7 @@ public class BlackJack {
             while (true) {
                 int comBetCard = 0;
                 if(comTotal <= 17){
-                    comBetCard = rand.nextInt(12)+1;
+                    comBetCard = cardGanerator();
                     System.out.println("ディーラーに「"+trampSuit[comBetCard]+"」が配られました。");
                     comTotal += comBetCard;
                     System.out.println("ディーラーの合計は "+comTotal+" です。");
@@ -106,6 +91,19 @@ public class BlackJack {
         }
 
     }
+
+    public static int cardGanerator(){
+        Random rand = new Random();
+        int card = rand.nextInt(12)+1;
+
+        //J、Q、Kは統一で10とする（Aは1とする）
+            if(card == 11 || card == 12 || card == 13){
+                card = 10;
+            }
+
+        return card;
+    }
+
 }
 
 /**

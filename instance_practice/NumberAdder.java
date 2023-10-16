@@ -9,7 +9,7 @@ public class NumberAdder {
             
             int HP = rand.nextInt(9);
 
-            System.out.print("HP =>" + HP+":");
+            System.out.print("HP =>" + HP+": ");
             if(isDead(HP)){
                 System.out.println("死んでます");
                 break;
