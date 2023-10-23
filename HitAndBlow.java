@@ -8,29 +8,46 @@ public class HitAndBlow {
         String[] userList = {};
         Scanner scanner = new Scanner(System.in);
         int countNumber = 0;
+        int i = 0;//while文の回転回数カウント用
 
+        
         comList = addList();
         System.out.println(comList);
 
-        for(int i=0;i<comList.size();i++){
-            countNumber += comList.get(i);
+        for(int j=0;j<comList.size();j++){
+            countNumber += comList.get(j);
         }
 
         // 数字を当てる処理
         while (true) {
-            int i = 0;
             int blowCount = 0;
             int hitCount = 0;
+            System.out.println("四桁の数字を入力してください:");
+
             String userInput = scanner.next();//処理の都合上必ずここで4桁入ってくる
             userList = userInput.split("");
+
+
 
             if(Integer.parseInt(userList[i]) == comList.get(i)){
                 blowCount++;
             }
 
-            if(Integer.parseInt(userInput) == countNumber){
-                hitCount++;
+            for(int j = 0;j<userList.length;j++){
+                if(Integer.parseInt(userList[j]) == comList.get(j)){
+                    hitCount++;
+                }
             }
+
+            if(hitCount == 4){
+                System.out.println("おめでとう！"+(i+1)+"回目で成功！");
+                return;
+            }
+
+            // if(Integer.parseInt(userInput) == countNumber){
+            //     hitCount++;
+            // }
+            System.out.println("ヒット："+hitCount+"個、ブロー："+blowCount+"個");
             //while文の一番最後の処理
             i++;
         }
