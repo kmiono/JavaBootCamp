@@ -7,16 +7,11 @@ public class HitAndBlow {
         ArrayList<Integer> comList = new ArrayList<>();
         String[] userList = {};
         Scanner scanner = new Scanner(System.in);
-        int countNumber = 0;
         int i = 0;//while文の回転回数カウント用
 
         
         comList = addList();
         System.out.println(comList);
-
-        for(int j=0;j<comList.size();j++){
-            countNumber += comList.get(j);
-        }
 
         // 数字を当てる処理
         while (true) {
@@ -26,8 +21,6 @@ public class HitAndBlow {
 
             String userInput = scanner.next();//処理の都合上必ずここで4桁入ってくる
             userList = userInput.split("");
-
-
 
             if(Integer.parseInt(userList[i]) == comList.get(i)){
                 blowCount++;
